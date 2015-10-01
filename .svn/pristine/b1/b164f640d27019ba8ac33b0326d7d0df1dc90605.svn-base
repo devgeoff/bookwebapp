@@ -1,0 +1,78 @@
+package com.booksellingapp.model;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="transactions")
+public class Transaction {
+	
+	private int transactionId;
+	private Date transactionDate;
+	private String buyerName;
+	private String sellerName;
+	private int transactionAmount;
+	
+	
+	
+	public Transaction() {
+		super();
+	}
+	
+	public Transaction(Date transactionDate,
+			String buyerName, String sellerName, int transactionAmount) {
+		this.transactionDate = transactionDate;
+		this.buyerName = buyerName;
+		this.sellerName = sellerName;
+		this.transactionAmount = transactionAmount;
+	}
+	
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id", unique = true, nullable = false)
+	public int getTransactionId() {
+		return transactionId;
+	}
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+	public Date getTransactionDate() {
+		return transactionDate;
+	}
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
+	}
+	
+	public String getBuyerName() {
+		return buyerName;
+	}
+	public void setBuyerName(String buyerName) {
+		this.buyerName = buyerName;
+	}
+	
+	public String getSellerName() {
+		return sellerName;
+	}
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
+	public int getTransactionAmount() {
+		return transactionAmount;
+	}
+	public void setTransactionAmount(int transactionAmount) {
+		this.transactionAmount = transactionAmount;
+	}
+	
+	
+	
+	
+	
+}

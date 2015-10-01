@@ -1,0 +1,123 @@
+package com.booksellingapp.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
+public class User {
+	
+	private String userName;
+	private String password;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String city;
+	private int zip;
+	private String emailAddress;
+	private boolean enabled;
+//	private String role;	
+	
+	public User(){
+		
+	}
+	
+	public User(String userName, String password, String firstName,
+		String lastName, String address, String city, int zip,
+		String emailAddress, boolean enabled) {
+	super();
+	this.userName = userName;
+	this.password = password;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.address = address;
+	this.city = city;
+	this.zip = zip;
+	this.emailAddress = emailAddress;
+	this.enabled = enabled;
+}
+	
+	@Id
+	@Column(name = "username", unique = true, 
+		nullable = false, length = 45)
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	@Column(name="first_name") 
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	@Column(name="last_name") 
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String adddress) {
+		this.address = adddress;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getZip() {
+		return zip;
+	}
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+	@Column(name="email_address") 
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+	
+	@Column(name = "password", 
+			nullable = false, length = 60)
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	@Column(name = "enabled", nullable = false)
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+//	public String getRole() {
+//		return role;
+//	}
+//	public void setRole(String role) {
+//		this.role = role;
+//	}
+	
+	
+
+	
+	
+	
+}
+
